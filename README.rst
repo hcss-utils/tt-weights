@@ -1,10 +1,16 @@
-Template
+tt-weights
 ========
 
 
 About
 -----
-Write about 1-2 paragraphs describing the purpose of your project.
+This repository contains a local copy of topic & term weights project: 
+* prepare BOWs and fit the `Dynamic Topic Model`
+* generate R's `ggplot2` viz with topic weights distribution over time 
+* export data for animated Flourish chart 
+
+The reason we're now running this project locally is because both Bohdan and I couldn't 
+make it work in the colab due to performance issues (see: Issues). 
 
 
 Getting started
@@ -20,8 +26,8 @@ Then create a new virtual environment:
 
 .. code-block:: console
 
-    $ git clone https://github.com/hcss-utils/PROJECT_NAME.git
-    $ cd PROJECT_NAME
+    $ git clone https://github.com/hcss-utils/tt-weights.git
+    $ cd tt-weights
     $ python -m venv env
     $ . env/Scripts/activate # Windows
     $ . env/bin/activate # Linux / MacOS
@@ -30,7 +36,9 @@ Then create a new virtual environment:
 
 Usage
 ^^^^^
-Write about 1-2 paragraphs describing how to run notebooks / use models.
+
+* DTM model (already preprocessed?) is in ``models/``
+* run notebooks consequently in ``notebooks/``
 
 
 Project Organization
@@ -47,7 +55,7 @@ Project Organization
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── models             <- DTM model
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
