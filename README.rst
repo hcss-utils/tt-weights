@@ -1,5 +1,5 @@
 tt-weights
-========
+==========
 
 
 About
@@ -8,7 +8,6 @@ This repository contains a local copy of topic & term weights project:
 
 * prepare BOWs and fit the `Dynamic Topic Model`
 * generate R's `ggplot2` viz with topic weights distribution over time 
-* export data for animated Flourish chart 
 
 The reason we're now running this project locally is because both Bohdan and I couldn't 
 make it work in the colab due to performance issues (see: Issues). 
@@ -40,8 +39,15 @@ Then create a new virtual environment:
 Usage
 ^^^^^
 
-* DTM model (already preprocessed?) is in ``models/``
-* run notebooks consequently in ``notebooks/``
+Run notebooks consequently in ``notebooks/``, e.g. ``notebooks/1.0_hp_dtm.ipynb``
+
+
+TODO
+----
+
+1. Train DTM on full corpus
+2. Label topics
+3. Produce `ggplot` vizzes
 
 
 Project Organization
