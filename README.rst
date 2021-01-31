@@ -19,6 +19,8 @@ Getting started
 These instructions will get you a copy of the project up and running on 
 your local machine for development and testing purposes.
 
+Also, keep in mind that you have to put original raw files from GDrive into ``data/raw/``. 
+
 
 Installation
 ^^^^^^^^^^^^
