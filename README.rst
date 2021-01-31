@@ -5,6 +5,7 @@ tt-weights
 About
 -----
 This repository contains a local copy of topic & term weights project: 
+
 * prepare BOWs and fit the `Dynamic Topic Model`
 * generate R's `ggplot2` viz with topic weights distribution over time 
 * export data for animated Flourish chart 
@@ -60,6 +61,8 @@ Project Organization
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0_hp_initial-data-exploration`.
+    │
+    ├── R                  <- R source files, e.g. ggplot2 timeseries visualization
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
