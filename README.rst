@@ -4,21 +4,13 @@ tt-weights
 
 About
 -----
-This repository contains a local copy of topic & term weights project: 
-
-* prepare BOWs and fit the `Dynamic Topic Model`
-* generate R's `ggplot2` viz with topic weights distribution over time 
-
-The reason we're now running this project locally is because both Bohdan and I couldn't 
-make it work in the colab due to performance issues (see: Issues). 
+Capturing the changes in topic terms over time using Dynamic LDA (Blei at al).
 
 
 Getting started
 ---------------
 These instructions will get you a copy of the project up and running on 
 your local machine for development and testing purposes.
-
-Also, keep in mind that you have to put original raw files from GDrive into ``data/raw/``. 
 
 
 Installation
@@ -39,16 +31,40 @@ Then create a new virtual environment:
 Usage
 ^^^^^
 
-Run notebooks consequently in ``notebooks/``, e.g. ``notebooks/1.0_hp_dtm.ipynb``
+In order to run the model, see: ``notebooks/1.0_hp_dtm.ipynb``
 
+Data requirements
+*****************
+In order to properly run the model, make sure you have corpus in specific format, 
+e.i. the data should come in ``list[str]`` format (each row should contain a list of ngrams.  
 
-TODO
-----
+Also, keep in mind that you have to put original raw files from GDrive into ``data/raw/``
 
-1. Train DTM on full corpus
-2. Label topics
-3. Produce `ggplot` vizzes
+Model binaries
+**************
+On linux this should not be a problem: 
 
+.. code-block:: console
+
+    git clone https://github.com/blei-lab/dtm.git
+    sudo apt-get install libgsl0-dev
+    cd dtm/dtm && make
+
+On windows, use pre-compiled binaries from ``models/bin``
+
+In both cases, specify full-path when initializing the model 
+
+.. code-block:: python
+
+    model = DtmModel(
+      dtm_path="tt-weights/models/bin/dtm-win64.exe", # or "dtm/dtm/main",
+      corpus=data["bows"].values,
+      time_slices=time_seq,
+      num_topics=20,
+      id2word=dictionary,
+      initialize_lda=True,
+      top_chain_var=0.05    
+    )
 
 Project Organization
 --------------------
@@ -58,13 +74,11 @@ Project Organization
     ├── Makefile           <- Makefile with commands like `make clean`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
     ├── models             <- DTM model
+    │   └── bin            <- Pre-compiled model binaries for Windows
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
