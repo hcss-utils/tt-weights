@@ -18,8 +18,13 @@ clean-pyc:
 clean-jupyter:
 	find . -name '*.ipynb_checkpoints' -exec rm -rf {} +
 
-lint: format 
-	flake8 src
+requirements:
+	pip install -r requirements.txt
+	pip install -r requirements-dev.txt
 
-format: 
-	black src
+install: requirements
+	git clone https://github.com/blei-lab/dtm.git
+	sudo apt-get install libgsl0-dev
+	cd dtm/dtm && make
+	mv dtm/dtm/ models/
+	rm -rf dtm/

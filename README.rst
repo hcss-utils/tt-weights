@@ -50,6 +50,13 @@ On linux this should not be a problem:
     sudo apt-get install libgsl0-dev
     cd dtm/dtm && make
 
+Alternatively, use 
+
+.. code-block: console
+
+    make install
+
+
 On windows, use pre-compiled binaries from ``models/bin``
 
 In both cases, specify full-path when initializing the model 
